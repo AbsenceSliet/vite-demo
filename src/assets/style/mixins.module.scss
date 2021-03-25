@@ -1,0 +1,110 @@
+// 背景图片地址和大小
+@mixin bis($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+}
+
+@mixin allcover {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@mixin allpage {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  overflow: auto;
+}
+
+@mixin wh($w, $h) {
+  width: px2rem($w);
+  height: px2rem($h);
+}
+
+@mixin flex($direction:row, $content:center, $items:center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $items;
+}
+
+// 居中定位
+@mixin ctp($w, $h) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: (- px2rem($h) / 2);
+  margin-left: (- px2rem($w) / 2);
+}
+
+@mixin ctt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin levelcenter {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin font($size:20px, $weight:500, $color:rgba(0, 0, 0, 0.85)) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  font-family: PingFangSC-Medium, PingFang SC;
+}
+@mixin  hideScrollBar {
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none; /* firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  &::-webkit-scrollbar {
+      display: none; /* Chrome Safari */
+  }
+}
+@mixin omitText($number:1){
+  display: -webkit-box;
+  -webkit-line-clamp: $number;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+
+}
